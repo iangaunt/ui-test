@@ -2,7 +2,7 @@ const title: HTMLElement = document.getElementById("box");
 const container: HTMLElement = document.getElementById("box-cont");
 const circle: HTMLElement = document.getElementById("circle");
 
-const limit: number = 200;
+const limit: number = 270;
 
 function calculateRotation(x: number, y: number, el: HTMLElement): string {
 	const box = el.getBoundingClientRect();
@@ -23,12 +23,12 @@ container.onmousemove = function(e) {
 
 	window.requestAnimationFrame(function(){
         transformElement(title!, position);
-	});
 
-    const box = title.getBoundingClientRect();
-    circle.style.top = e.clientY - box.y - circle.offsetHeight / 2 + "px";
-    circle.style.left = e.clientX - box.x - circle.offsetWidth / 2 + "px";
-    circle.style.transitionDuration = "0.05s";
+        const box = title.getBoundingClientRect();
+        circle.style.top = e.clientY - box.y - circle.offsetHeight / 2 + "px";
+        circle.style.left = e.clientX - box.x - circle.offsetWidth / 2 + "px";
+        circle.style.transitionDuration = "0.05s";
+	});
 };
 
 container.onmouseenter = function() {
@@ -37,9 +37,11 @@ container.onmouseenter = function() {
 }
 
 container.onmouseleave = function() {
-    title.style.transform = "perspective(150px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)";
-    title.style.transitionDuration = "0.5s";
-    circle.style.transitionDuration = "0.5s";
+    window.requestAnimationFrame(function(){
+        title.style.transform = "perspective(150px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)";
+        title.style.transitionDuration = "0.5s";
 
-    circle.style.opacity = "0";
+        circle.style.transitionDuration = "0.5s";
+        circle.style.opacity = "0";
+	});
 }

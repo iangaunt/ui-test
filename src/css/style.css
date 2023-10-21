@@ -1,8 +1,17 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Mona Sans";
   src: url("../../public/Mona-Sans.woff2") format("woff2 supports variations"), url("../../public/Mona-Sans.woff2") format("woff2-variations");
   font-weight: 200 900;
   font-stretch: 75% 125%;
+}
+@keyframes rotate-arrow {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }
 * {
   color: white;
@@ -27,8 +36,12 @@ body {
   justify-content: center;
   align-items: center;
   background: rgb(13, 17, 23);
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
+}
+body div {
+  margin: 10px;
 }
 body #box {
   display: flex;
@@ -91,4 +104,38 @@ body #box img {
   position: absolute;
   width: 100px;
   z-index: -100;
+}
+body #btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7.5%;
+}
+body #btn button {
+  background: rgb(23, 27, 33);
+  border: 1px solid rgb(43, 47, 53);
+  border-radius: 40px;
+  box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.05);
+  font-size: 65%;
+  height: 7.5vh;
+  position: absolute;
+  transition-duration: 0.2s;
+  width: 20vw;
+}
+body #btn button::after {
+  content: "→";
+  padding-left: 10px;
+  position: absolute;
+  transition-duration: 0.2s;
+}
+body #btn button:hover {
+  background: rgb(43, 47, 53);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: rgb(50, 183, 255);
+  width: 21vw;
+}
+body #btn button:hover::after {
+  color: rgb(50, 183, 255);
+  padding-left: 12px;
+  transform: rotateX(180deg);
 }/*# sourceMappingURL=style.css.map */

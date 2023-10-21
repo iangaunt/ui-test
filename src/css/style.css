@@ -5,14 +5,6 @@
   font-weight: 200 900;
   font-stretch: 75% 125%;
 }
-@keyframes rotate-arrow {
-  from {
-    transform: rotateX(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
 * {
   color: white;
   font-family: "Mona Sans";
@@ -32,18 +24,24 @@
 }
 
 body {
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+#buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(13, 17, 23);
   flex-direction: column;
   height: 100vh;
+  overflow: hidden;
   width: 100vw;
 }
-body div {
+#buttons div {
   margin: 10px;
 }
-body #box {
+#buttons #box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,44 +55,44 @@ body #box {
   overflow: hidden;
   position: relative;
 }
-body #box h1 {
+#buttons #box h1 {
   font-size: 200%;
   font-weight: 500;
 }
-body #box h1 span {
+#buttons #box h1 span {
   font-size: 100%;
   font-weight: 500;
   padding: -10px;
   transition: color 0.7s, font-weight 0.7s;
 }
-body #box h1 span:hover {
+#buttons #box h1 span:hover {
   color: rgb(50, 183, 255);
   font-weight: 800;
   transition: color 0.1s, font-weight 0.1s;
 }
-body #box p {
+#buttons #box p {
   font-size: 60%;
   width: 80%;
   padding: 5px;
   opacity: 0.8;
 }
-body #box p a {
+#buttons #box p a {
   color: rgb(20, 153, 248);
   font-size: 100%;
   font-weight: 400;
   transition: color 0.15s;
   opacity: 1;
 }
-body #box p a:hover {
+#buttons #box p a:hover {
   color: rgb(50, 183, 255);
   text-decoration: underline;
 }
-body #box p span {
+#buttons #box p span {
   font-size: 100%;
   font-weight: 500;
 }
-body #box img {
-  background: rgb(100, 100, 255);
+#buttons #box img {
+  background: rgb(20, 153, 248);
   border-radius: 100%;
   content: "";
   filter: blur(120px);
@@ -105,13 +103,13 @@ body #box img {
   width: 100px;
   z-index: -100;
 }
-body #btn {
+#buttons #btn {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 7.5%;
 }
-body #btn button {
+#buttons #btn button {
   background: rgb(23, 27, 33);
   border: 1px solid rgb(43, 47, 53);
   border-radius: 40px;
@@ -122,20 +120,50 @@ body #btn button {
   transition-duration: 0.2s;
   width: 20vw;
 }
-body #btn button::after {
+#buttons #btn button::after {
   content: "→";
   padding-left: 10px;
   position: absolute;
-  transition-duration: 0.2s;
+  transition-duration: 1s;
 }
-body #btn button:hover {
+#buttons #btn button:hover {
   background: rgb(43, 47, 53);
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: rgb(50, 183, 255);
   width: 21vw;
 }
-body #btn button:hover::after {
+#buttons #btn button:hover::after {
   color: rgb(50, 183, 255);
   padding-left: 12px;
   transform: rotateX(180deg);
+}
+
+#flippers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(13, 17, 23);
+  flex-direction: column;
+  height: 200vh;
+  position: absolute;
+  width: 200vw;
+  z-index: -100;
+}
+#flippers div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  margin: 3px;
+  opacity: 0.1;
+  width: 100vw;
+}
+#flippers div #b {
+  aspect-ratio: 1;
+  background: white;
+  border: 0px;
+  height: 20vh;
+  margin: 3px;
+  position: relative;
+  transition: background 0.5s, opacity 0.5s, transform 0.5s;
 }/*# sourceMappingURL=style.css.map */

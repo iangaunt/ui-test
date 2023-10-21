@@ -13,11 +13,7 @@
     align-items: center;
 }
 
-@keyframes rotate-arrow {
-    from { transform: rotateX(0deg) }
-    to { transform: rotateY(360deg) }
-}
-
+$bg-dark: rgb(13, 17, 23);
 $bg: rgb(23, 27, 33);
 $bdr: rgb(43, 47, 53);
 $blue: rgb(100, 100, 255);
@@ -40,10 +36,16 @@ $link-hv: rgb(50, 183, 255);
 }
 
 body {
+    height: 100vh;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+#buttons {
     @include flex; 
-    background: rgb(13, 17, 23);
     flex-direction: column;
     height: 100vh;
+    overflow: hidden;
     width: 100vw;
 
     div {
@@ -109,7 +111,7 @@ body {
         }
 
         img {
-            background: $blue;
+            background: $link;
             border-radius: 100%;
             content: "";
             filter: blur(120px);
@@ -141,7 +143,7 @@ body {
                 content: "→";
                 padding-left: 10px;
                 position: absolute;
-                transition-duration: 0.2s;
+                transition-duration: 1s;
             }
            
             &:hover {
@@ -156,6 +158,34 @@ body {
                     transform: rotateX(180deg);
                 }
             }
+        }
+    }
+}
+
+#flippers {
+    @include flex;
+    background: $bg-dark;
+    flex-direction: column;
+    height: 200vh;
+    position: absolute;
+    width: 200vw;
+    z-index: -100;
+
+    div {
+        @include flex;
+        height: 20vh;
+        margin: 3px;
+        opacity: 0.1;
+        width: 100vw;
+
+        #b {
+            aspect-ratio: 1;
+            background: white;
+            border: 0px;
+            height: 20vh;
+            margin: 3px;
+            position: relative;
+            transition: background 0.5s, opacity 0.5s, transform 0.5s;
         }
     }
 }

@@ -35,3 +35,27 @@ container.onmouseleave = function () {
         circle.style.opacity = "0";
     });
 };
+for (var i = 0; i < 10; i++) {
+    var row = document.createElement("div");
+    for (var j = 0; j < 10; j++) {
+        var b = document.createElement("p");
+        b.id = "b";
+        b.classList.add((i * 10 + j).toString());
+        row.appendChild(b);
+    }
+    document.getElementById("flippers").appendChild(row);
+}
+function randomInt(low, high) {
+    return Math.round(Math.random() * (high - low)) + low;
+}
+setInterval(function () {
+    for (var i = 0; i < 5; i++) {
+        var pos = randomInt(0, 99).toString();
+        var elem = document.getElementsByClassName(pos).item(0);
+        var offset = randomInt(100, 250);
+        var c = randomInt(0, 1) == 1 ? "Z" : "X";
+        elem.style.transform = "rotate" + c + "(" + (randomInt(0, 1) * 180) + "deg)";
+        elem.style.background = "rgb(" + offset + ", " + offset + ", 255)";
+        elem.style.opacity = (randomInt(5, 10) / 10).toString();
+    }
+}, 250);
